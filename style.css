@@ -1,0 +1,133 @@
+body {
+    background-color: black;
+    font-family: Verdana, sans-serif;
+    overflow: hidden;
+}
+
+#tray {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+    width: 640px;
+    height: 380px;
+    padding-top: 70px;
+    background-color: #163;
+    overflow: hidden;
+    border-radius: 5px;
+}
+#title {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    display: block;
+    width: 600px;
+    height: 50px;
+    margin-left: -300px;
+    z-index: 0;
+    color: #163;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2), -1px -1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 32px;
+}
+
+.card-main {
+    display: inline-block;
+    width: 64px;
+    height: 96px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    opacity: 1;
+    transition: all .25s linear;
+}
+
+.card-main .face {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #ddd;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+
+    -webkit-transition: all .7s ease-in;
+    -moz-transition: all .7s ease-in;
+    transition: all .7s ease-in;
+
+    -webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+    text-align: right;
+    font-size: 8px;
+    color: black;
+    padding: 5px;
+}
+
+.card-main .back {
+    background-color: #131;
+}
+
+.card-main .back,
+.card-main[turned-up] .front {
+    z-index: 1100;
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+}
+
+.card-main .front,
+.card-main[turned-up] .back {
+    z-index: 1000;
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-179deg);
+}
+
+.rotated,
+.info {
+    transition: all .5s linear;
+}
+
+.rotated {
+    -webkit-transform: translate(0px, 0px) rotate(89deg);
+    transform: translate(0px, 0px) rotate(89deg);
+}
+
+.counter {
+    -webkit-transform: translate(0px, 0px) rotate(88deg);
+    transform: translate(0px, 0px) rotate(88deg);
+    position: absolute;
+    right: 34px;
+    top: 10px;
+    z-index: 0;
+    cursor: default;
+}
+
+.card-main[away] {
+    -webkit-transform: translate(0px, 1024px) rotate(1080deg);
+    transform: translate(0px, 1024px) rotate(1080deg);
+}
+
+.rotated .face {
+    box-shadow: 1px -1px 1px rgba(0,0,0,0.5);
+}
+
+.card-main .front span {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -32px;
+    bottom: 0;
+    right: -32px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 96px;
+    text-align: center;
+}
